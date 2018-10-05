@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
 /**
  * 代码生成接口
  * 
- * @author 小威老师
+ * @author jian
  *
  */
 @Api(tags = "代码生成")

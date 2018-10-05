@@ -20,7 +20,7 @@ import com.boot.security.server.filter.TokenFilter;
 /**
  * spring security配置
  * 
- * @author 小威老师
+ * @author jian
  * 
  *         2017年10月16日
  *

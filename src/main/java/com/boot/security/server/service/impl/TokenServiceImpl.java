@@ -16,7 +16,7 @@ import com.boot.security.server.service.TokenService;
  * token存到redis的实现类<br>
  * 普通token，uuid
  * 
- * @author 小威老师
+ * @author jian
  *
  */
 @Deprecated

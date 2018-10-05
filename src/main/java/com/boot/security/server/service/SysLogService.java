@@ -5,7 +5,7 @@ import com.boot.security.server.model.SysLogs;
 /**
  * 日志service
  * 
- * @author 小威老师
+ * @author jian
  *
  *         2017年8月19日
  */

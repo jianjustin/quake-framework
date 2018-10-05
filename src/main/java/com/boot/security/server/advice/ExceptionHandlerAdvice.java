@@ -17,7 +17,7 @@ import com.boot.security.server.dto.ResponseInfo;
 /**
  * springmvc异常处理
  * 
- * @author 小威老师
+ * @author jian
  *
  */
 @RestControllerAdvice

@@ -21,7 +21,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 /**
  * excel工具类
  * 
- * @author 小威老师
+ * @author jian
  *
  */
 public class ExcelUtil {

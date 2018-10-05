@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Restful方式登陆token
  * 
- * @author 小威老师
+ * @author jian
  *
  *         2017年8月4日
  */
