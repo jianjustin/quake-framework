@@ -1,8 +1,10 @@
 ## quake-framework
 
-![quake-framework](https://img.shields.io/badge/quake--framework-1.0-blue.svg)
+![light4j--member](https://img.shields.io/badge/quake--framework-1.0-blue.svg)
 
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)
+
+![](https://img.shields.io/badge/language-java-orange.svg)
 
 
 ## 简介
