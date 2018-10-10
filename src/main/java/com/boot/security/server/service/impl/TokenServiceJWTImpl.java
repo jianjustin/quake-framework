@@ -35,7 +35,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
  * @author jian
  *
  */
-@Primary
+//@Primary
 @Service
 public class TokenServiceJWTImpl implements TokenService {
 
