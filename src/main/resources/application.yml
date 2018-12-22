@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://67.209.179.154:3306/boot_security
+    url: jdbc:mysql://35.236.157.241:33060/quakeDatabase?characterEncoding=utf8&useSSL=false
     username: root
-    password: root
+    password: jian031018
     druid:
       initialSize: 5
       minIdle: 5

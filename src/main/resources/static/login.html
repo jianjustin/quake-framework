@@ -1,88 +1,130 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Cache-Control" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>登录</title>
-<link href="css/login.css" type="text/css" rel="stylesheet">
+  	<meta charset="utf-8">
+  	<title>Login-Page</title>
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+  	<link rel="stylesheet" href="layui/css/layui.css">
+  	<style type="text/css">
+	  *{
+		box-sizing:border-box;
+		margin:0px;
+		padding:0px;
+	  }
+	  html,body{
+		height:100%;
+	  }
+	  .container{
+		height:100%;
+		width:100%;
+		margin:0px;
+		padding:0px;
+		background-image:url(img/login/login.jpg);
+		background-size:100% 100%;
+	  }
+	  .login-label{
+		color:#E0E0E0;
+		text-align:position;
+		margin-bottom:15px;
+		text-align:center;
+	  }
+	  .layui-input-block{
+		margin-left:0px;
+	  }
+	  .submit-btn{
+		width:100%;
+	  }
+	  .login{
+		background-color:#c2c2c2;
+		height: 260px;
+		width: 260px;
+		position:absolute;
+		top:50%;
+		left:50%;
+		margin-top:-130px;
+		margin-left:-130px;
+		padding:20px;
+		background-color: rgba(0,0,0,0.5);/*设置登陆窗半透明*/
+	  }
+  </style>
 </head>
 <body>
 
+<div class="container layui-container">
+
 	<div class="login">
-		<div class="message">后台管理系统</div>
-		<div id="darkbannerwrap"></div>
-
-		<form id="login-form" method="post" onsubmit="return false;">
-			<input id="username" name="username" placeholder="用户名" type="text"
-				autocomplete="off">
-			<hr class="hr15">
-			<input id="password" name="password" placeholder="密码" type="password"
-				autocomplete="off">
-			<hr class="hr15">
-			<button style="width: 100%;" type="submit"
-				onclick="login(this)">登录</button>
-			<hr class="hr20">
+		<h1 class="login-label">后台管理登陆</h1>
+		<form id="login-form" class="layui-form" onsubmit="return false;" method="post"  >
 			<span id="info" style="color: red"></span>
+			<div class="layui-form-item">
+				<div class="layui-input-block"><input id="username" name="username" class="layui-input" type="text" placeholder="请输入账号"></div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-input-block"><input id="password" password="password" class="layui-input" type="password" placeholder="请输入密码"></div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-input-block"><button class="layui-btn submit-btn" onclick="login(this)">立即提交</button></div>
+			</div>
 		</form>
-
-
 	</div>
+</div> 
 
-</body>
+<script src="layui/layui.js"></script>
 <script src="js/libs/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
-	if (top != self) {
-		parent.location.href = '/login.html';
-	}
-	
-	var token = localStorage.getItem("token");
-	if (token != null && token.trim().length != 0) {
-		$.ajax({
-			type : 'get',
-			url : '/users/current?token=' + token,
-			success : function(data) {
-				location.href = '/index.html';
-			},
-			error : function(xhr, textStatus, errorThrown) {
-				var msg = xhr.responseText;
-				var response = JSON.parse(msg);
-				var code = response.code;
-				var message = response.message;
-				if (code == 401) {
-					localStorage.removeItem("token");
-				}
-			}
-		});
-	}
+    if (top != self) {
+        parent.location.href = '/login.html';
+    }
 
-	function login(obj) {
-		$(obj).attr("disabled", true);
+    var token = localStorage.getItem("token");
+    if (token != null && token.trim().length != 0) {
+        $.ajax({
+            type : 'get',
+            url : '/users/current?token=' + token,
+            success : function(data) {
+                location.href = '/index.html';
+            },
+            error : function(xhr, textStatus, errorThrown) {
+                var msg = xhr.responseText;
+                var response = JSON.parse(msg);
+                var code = response.code;
+                var message = response.message;
+                if (code == 401) {
+                    localStorage.removeItem("token");
+                }
+            }
+        });
+    }
 
-		var username = $.trim($('#username').val());
-		var password = $.trim($('#password').val());
-		if (username == "" || password == "") {
-			$("#info").html('用户名或者密码不能为空');
-			$(obj).attr("disabled", false);
-		} else {
-			$.ajax({
-				type : 'post',
-				url : '/login',
-				data : $("#login-form").serialize(),
-				success : function(data) {
-					localStorage.setItem("token", data.token);
-					location.href = '/index.html';
-				},
-				error : function(xhr, textStatus, errorThrown) {
-					var msg = xhr.responseText;
-					var response = JSON.parse(msg);
-					$("#info").html(response.message);
-					$(obj).attr("disabled", false);
-				}
-			});
+    function login(obj) {
+        $(obj).attr("disabled", true);
 
-		}
-	}
+        var username = $.trim($('#username').val());
+        var password = $.trim($('#password').val());
+        if (username == "" || password == "") {
+            $("#info").html('用户名或者密码不能为空');
+            $(obj).attr("disabled", false);
+        } else {
+            $.ajax({
+                type : 'post',
+                url : '/login',
+                data : $("#login-form").serialize(),
+                success : function(data) {
+                    localStorage.setItem("token", data.token);
+                    location.href = '/index.html';
+                },
+                error : function(xhr, textStatus, errorThrown) {
+                    var msg = xhr.responseText;
+                    var response = JSON.parse(msg);
+                    $("#info").html(response.message);
+                    $(obj).attr("disabled", false);
+                }
+            });
+
+        }
+    }
 </script>
+</body>
 </html>
