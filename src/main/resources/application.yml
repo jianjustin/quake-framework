@@ -32,6 +32,8 @@ spring:
   mvc:
     servlet:
       load-on-startup: 1
+    favicon:
+      enabled: false
   redis:
     host: localhost
     port: 6379
