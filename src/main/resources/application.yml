@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/boot_security?characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://35.236.157.241:33061/boot_security?characterEncoding=utf8&useSSL=false
     username: root
     password: jian031018
     druid:
@@ -63,7 +63,7 @@ log:
   maxsize: 30MB
 token:
   expire:
-    seconds: 7200
+    seconds: 72
   jwtSecret: (XIAO:)_$^11244^%$_(WEI:)_@@++--(LAO:)_++++_.sds_(SHI:)
 server:
   port: 8080

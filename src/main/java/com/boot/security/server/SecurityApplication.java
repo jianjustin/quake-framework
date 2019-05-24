@@ -19,7 +19,11 @@ public class SecurityApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SecurityApplication.class, args);
 	}
-	
+
+    /**
+     * 接口跨域支持
+     * @return
+     */
 	@Bean
     public WebMvcConfigurer webMvcConfigurer() {
         return new WebMvcConfigurerAdapter() {
